@@ -19,7 +19,7 @@ class CreatePokemons < ActiveRecord::Migration[7.1]
     create_table :pokemons do |t|
       t.string :name, null: false
       t.text :description, null: false
-      t.string :types, array: true
+      t.enum :types, enum_type: 'pokemon_type', array: true
       t.integer :hp, null: false
       t.integer :attack, null: false
       t.integer :defense, null: false
