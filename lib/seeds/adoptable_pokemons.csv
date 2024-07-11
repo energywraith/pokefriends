@@ -1,2 +1,2 @@
-name,pokemon_id,shelter_id,birth_date,size,temperament,health_status,background,compatibility
+name,species_id,shelter_id,birth_date,size,temperament,health_status,background,compatibility
 Blasty,9,7,2021-11-04,large,brave,healthy,"Rescued from the Viridian Forest, has been socialized and trained by our team.","Ideal for families with children, gets along well with other Pokémon."

@@ -25,7 +25,7 @@ CSV.foreach('lib/seeds/pokemons.csv', headers: true, encoding: 'ISO-8859-1', col
   t.special_attack = row['sp. atk']
   t.special_defense = row['sp. def']
   t.speed = row['speed']
-  t.save
+  t.save!
   puts "Pokemon #{t.name} saved"
 end
 
@@ -36,7 +36,7 @@ CSV.foreach('lib/seeds/evolutions.csv', headers: true, encoding: 'ISO-8859-1', c
   t.level = row['level']
   t.item_id = row['item_id']
   t.by_trade = row['by_trade']
-  t.save
+  t.save!
   pokemon = Pokemon.find_by(id: t.pokemon_id)
   pokemon.update(evolution_id: t.id)
   puts "Evolution #{t.id} for #{t.pokemon_id} saved"
@@ -46,7 +46,7 @@ CSV.foreach('lib/seeds/pokemon_evolutions.csv', headers: true, encoding: 'ISO-88
   t = PokemonEvolution.new
   t.pokemon_id = row['pokemon_id']
   t.evolution_id = row['evolution_id']
-  t.save
+  t.save!
   puts "PokemonEvolution #{t.evolution_id} for #{t.pokemon_id} saved"
 end
 
@@ -58,7 +58,7 @@ end
 CSV.foreach('lib/seeds/adoptable_pokemons.csv', headers: true, encoding: 'ISO-8859-1', col_sep: ',') do |row|
   t = AdoptablePokemon.new
   t.name = row['name']
-  t.pokemon_id = row['pokemon_id']
+  t.species_id = row['species_id']
   t.shelter_id = row['shelter_id']
   t.birth_date = row['birth_date']
   t.size = row['size']
@@ -66,7 +66,7 @@ CSV.foreach('lib/seeds/adoptable_pokemons.csv', headers: true, encoding: 'ISO-88
   t.health_status = row['health_status']
   t.background = row['background']
   t.compatibility = row['compatibility']
-  t.save
+  t.save!
   puts "AdoptablePokemon #{t.name} saved"
 end
 

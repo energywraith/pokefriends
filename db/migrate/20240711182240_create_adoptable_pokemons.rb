@@ -6,7 +6,7 @@ class CreateAdoptablePokemons < ActiveRecord::Migration[7.1]
 
     create_table :adoptable_pokemons do |t|
       t.string :name, null: false
-      t.references :pokemon, null: false, foreign_key: { to_table: :pokemons }
+      t.references :species, null: false, foreign_key: { to_table: :pokemons }
       t.references :shelter, null: false, foreign_key: { to_table: :shelters }
       t.date :birth_date, null: false
       t.enum :size, enum_type: 'size', null: false

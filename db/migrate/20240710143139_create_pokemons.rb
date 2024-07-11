@@ -9,6 +9,8 @@ class CreatePokemons < ActiveRecord::Migration[7.1]
                                   Fighting
                                   Poison
                                   Ground
+                                  Fairy
+                                  Steel
                                   Flying
                                   Psychic
                                   Bug
