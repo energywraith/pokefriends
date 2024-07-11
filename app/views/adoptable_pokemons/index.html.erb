@@ -1,0 +1,8 @@
+<h1>Pokemons for adoption</h1>
+<ul>
+  <% @adoptable_pokemons.each do |adoptable_pokemon| %>
+      <li>
+        <%= link_to adoptable_pokemon.name, adoptable_pokemon %>
+      </li>
+  <% end %>
+</ul>
