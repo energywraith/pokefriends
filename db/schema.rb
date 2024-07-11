@@ -10,27 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_143556) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_11_182240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_enum :pokemon_type, [
-    "Normal",
-    "Fire",
-    "Water",
-    "Electric",
-    "Grass",
-    "Ice",
-    "Fighting",
-    "Poison",
-    "Ground",
-    "Flying",
-    "Psychic",
-    "Bug",
-    "Rock",
-    "Ghost",
-    "Dragon",
-  ], force: :cascade
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "health_status", ["healthy", "special_diet"]
+  create_enum "pokemon_type", ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon"]
+  create_enum "size", ["small", "medium", "large"]
+  create_enum "temperament", ["hardy", "lonely", "brave", "relaxed", "serious", "modest", "quiet", "calm", "gentle", "careful", "quirky"]
+
+  create_table "adoptable_pokemons", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "pokemon_id", null: false
+    t.bigint "shelter_id", null: false
+    t.date "birth_date", null: false
+    t.enum "size", null: false, enum_type: "size"
+    t.enum "temperament", null: false, enum_type: "temperament"
+    t.enum "health_status", null: false, enum_type: "health_status"
+    t.text "background", null: false
+    t.text "compatibility", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_adoptable_pokemons_on_pokemon_id"
+    t.index ["shelter_id"], name: "index_adoptable_pokemons_on_shelter_id"
+  end
 
   create_table "evolutions", force: :cascade do |t|
     t.integer "pokemon_id"
@@ -74,6 +79,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_143556) do
     t.index ["evolution_id"], name: "index_pokemons_on_evolution_id"
   end
 
+  create_table "shelters", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "adoptable_pokemons", "pokemons"
+  add_foreign_key "adoptable_pokemons", "shelters"
   add_foreign_key "evolutions", "items"
   add_foreign_key "pokemon_evolutions", "evolutions"
   add_foreign_key "pokemon_evolutions", "pokemons"
