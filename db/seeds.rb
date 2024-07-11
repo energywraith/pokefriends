@@ -50,7 +50,29 @@ CSV.foreach('lib/seeds/pokemon_evolutions.csv', headers: true, encoding: 'ISO-88
   puts "PokemonEvolution #{t.evolution_id} for #{t.pokemon_id} saved"
 end
 
+CSV.foreach('lib/seeds/shelters.csv', headers: true, encoding: 'ISO-8859-1', col_sep: ',') do |row|
+  t = Shelter.find_or_create_by!(name: row['name'])
+  puts "Shelter #{t.name} saved"
+end
+
+CSV.foreach('lib/seeds/adoptable_pokemons.csv', headers: true, encoding: 'ISO-8859-1', col_sep: ',') do |row|
+  t = AdoptablePokemon.new
+  t.name = row['name']
+  t.pokemon_id = row['pokemon_id']
+  t.shelter_id = row['shelter_id']
+  t.birth_date = row['birth_date']
+  t.size = row['size']
+  t.temperament = row['temperament']
+  t.health_status = row['health_status']
+  t.background = row['background']
+  t.compatibility = row['compatibility']
+  t.save
+  puts "AdoptablePokemon #{t.name} saved"
+end
+
 puts "There are now #{Item.count} rows in the items table"
 puts "There are now #{Pokemon.count} rows in the pokemons table"
 puts "There are now #{Evolution.count} rows in the evolutions table"
 puts "There are now #{PokemonEvolution.count} rows in the pokemon_evolutions table"
+puts "There are now #{Shelter.count} rows in the shelters table"
+puts "There are now #{AdoptablePokemon.count} rows in the adoptable_pokemons table"
