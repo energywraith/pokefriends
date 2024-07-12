@@ -1,0 +1,48 @@
+<%
+@links = [
+  { label: "HOME", path: root_path, controller: "main" },
+  { label: "POKEMONS FOR ADOPTION", path: adoptable_pokemons_path, controller: "adoptable_pokemons" },
+  { label: "POKEDEX", path: pokemons_path, controller: "pokemons" },
+  { label: "FAQ", path: root_path, controller: "faq" }
+]
+%>
+<nav>
+  <div class="flex flex-wrap items-center justify-between mx-auto mb-8 lg:mb-12">
+    <%= link_to image_tag("brand.png", class: "h-8"), root_path %>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-accent rounded-lg lg:hidden hover:bg-orange-50 focus:outline-none focus:ring-2" aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
+    <div class="hidden w-full lg:block lg:w-auto text-xs font-semibold" id="navbar-default">
+      <ul class="font-medium flex flex-col lg:flex-row gap-x-6 lg:items-center mt-4 lg:mt-0 rounded-lg border border-orange-200 bg-orange-50 lg:bg-transparent px-4 pt-6 pb-4 lg:p-0 lg:border-0">
+        <% @links.each do |link| %>
+          <li class="<%= 'text-accent' if link[:controller].eql? params[:controller]%>">
+            <%= link_to link[:label], link[:path], class: "block py-3 lg:p-0 max-lg:hover:bg-accent max-lg:hover:text-zinc-100 px-4 rounded-md" %>
+          </li>
+        <% end %>
+        <li class="self-center">
+          <%= render "shared/button_link", text: "GET YOUR POKEMON NOW!", href: adoptable_pokemons_path, classname: "lg:hidden my-4" %>
+        </li>
+      </ul>
+    </div>
+    <%= render "shared/button_link", text: "GET YOUR POKEMON NOW!", href: adoptable_pokemons_path, classname: "hidden lg:block" %>
+  </div>
+</nav>
+<script>
+  const navbar = document.querySelector("#navbar-default")
+  const navbarToggle = document.querySelector("[data-collapse-toggle=navbar-default]")
+  navbarToggle.addEventListener("click", () => {
+    const isExpanded = navbarToggle.getAttribute('aria-expanded')
+    const shouldBeVisible = isExpanded === 'false'
+    navbarToggle.setAttribute('aria-expanded', shouldBeVisible ? 'true' : 'false')
+
+    if (shouldBeVisible) {
+      navbar.classList.remove("hidden")
+      return;
+    }
+
+    navbar.classList.add("hidden")
+  })
+</script>
