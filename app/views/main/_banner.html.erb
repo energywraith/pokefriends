@@ -1,8 +1,8 @@
-<section class="flex flex-col lg:flex-row gap-x-8 min-h-96">
-  <section class="flex flex-col gap-y-3 self-center w-full lg:w-fit">
+<section class="flex flex-col lg:flex-row gap-x-8 min-h-96 -mt-4">
+  <section class="flex flex-col items-center lg:items-start text-center lg:text-start gap-y-3 self-center w-full lg:w-fit">
     <h1 class="text-6xl font-normal max-w-96 leading-tight">Adopt a <span class="text-accent font-semibold">new</span>
       best friend!</h1>
-    <p class="text-xl max-w-96 pr-20 leading-relaxed">Countless Pokémon are in need of a home. With us, you can
+    <p class="text-xl max-w-80 lg:max-w-96 lg:pr-20 leading-relaxed">Countless Pokémon are in need of a home. With us, you can
       give them a loving family.</p>
     <%= render "shared/button_link", text: "Find Your Pokémon", icon: 'pokeball.svg', href: adoptable_pokemons_path, classname: "w-fit font-normal text-lg mt-5" %>
   </section>
