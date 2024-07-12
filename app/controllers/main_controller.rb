@@ -1,3 +1,5 @@
 class MainController < ApplicationController
-  def index; end
+  def index
+    @pokemon_count = Pokemon.count
+  end
 end
