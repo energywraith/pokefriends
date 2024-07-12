@@ -1,0 +1,16 @@
+<%
+  @achievements = [
+    {total: '10', label: 'Pokémon Shelters'},
+    {total: '60k+', label: 'Pokémon Adopted'},
+    {total: '151', label: 'Pokémon Available'},
+    {total: '300k+', label: 'Rescued Pokémon'},
+  ]
+%>
+<section class="grid grid-cols-2 gap-y-12 lg:flex lg:justify-between">
+  <% @achievements.each do |achievement| %>
+    <article class="flex flex-col items-center lg:items-start">
+      <h2 class="text-6xl text-accent font-semibold"><%= achievement[:total] %></h2>
+      <p class="text-lg"><%= achievement[:label] %></p>
+    </article>
+  <% end %>
+</section>
