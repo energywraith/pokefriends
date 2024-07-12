@@ -1,0 +1,15 @@
+<section class="flex flex-col lg:flex-row gap-x-8 min-h-96">
+  <section class="flex flex-col gap-y-3 self-center w-full lg:w-fit">
+    <h1 class="text-6xl font-normal max-w-96 leading-tight">Adopt a <span class="text-accent font-semibold">new</span>
+      best friend!</h1>
+    <p class="text-xl max-w-96 pr-20 leading-relaxed">Countless Pokémon are in need of a home. With us, you can
+      give them a loving family.</p>
+    <%= render "shared/button_link", text: "Find Your Pokémon", icon: 'pokeball.svg', href: adoptable_pokemons_path, classname: "w-fit font-normal text-lg mt-5" %>
+  </section>
+  <aside class="grid lg:grid-cols-[auto_1fr] gap-y-6 mt-8 lg:m-0">
+    <%= image_tag("main/banner-eevee.webp", class: "rounded-3xl max-h-44 object-cover w-full", alt: "Eevee painted in Van Gogh style") %>
+    <h2 class="text-3xl text-center self-center hidden lg:block"><span class="text-6xl text-accent font-semibold">151</span><br />
+      Pokémon</h2>
+    <%= image_tag("main/banner-psyduck.webp", class: "rounded-3xl col-span-2 object-cover max-h-60 w-full hidden lg:block", alt: "Psyduck splashing in the water at our resort") %>
+  </aside>
+</section>
