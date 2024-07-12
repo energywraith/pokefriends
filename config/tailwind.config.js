@@ -15,6 +15,13 @@ module.exports = {
       colors: {
         accent: "#83A498",
       },
+      screens: {
+        sm: "600px",
+        md: "728px",
+        lg: "1128px",
+        xl: "1128px",
+        "2xl": "1128px",
+      },
     },
   },
   plugins: [
