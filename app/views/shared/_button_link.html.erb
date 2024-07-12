@@ -1,2 +1,5 @@
-<% classnames = "block bg-accent text-zinc-100 font-semibold text-sm py-3 px-4 rounded-3xl" %>
-<%= link_to text, href, :class => classnames + " " + classname %>
+<% classnames = "block bg-accent text-zinc-100 font-semibold text-sm py-3 px-4 rounded-3xl flex items-center justify-center gap-2" %>
+<%= link_to href, :class => classnames + " " + classname do %>
+  <%= image_tag(icon, class: "h-6 w-6") if defined? icon %>
+  <%= text %>
+<% end %>
