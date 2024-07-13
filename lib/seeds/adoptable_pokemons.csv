@@ -1,2 +1,11 @@
 name,species_id,shelter_id,birth_date,size,temperament,health_status,background,compatibility
 Blasty,9,7,2021-11-04,large,brave,healthy,"Rescued from the Viridian Forest, has been socialized and trained by our team.","Ideal for families with children, gets along well with other Pokémon."
+Flare,37,3,2022-01-15,medium,hardy,healthy,"Found wandering near Mt. Ember, has undergone extensive training.","Best suited for active families, enjoys being around other Pokémon."
+Snappy,52,2,2020-05-30,small,calm,special_diet,"Rescued from a flooded area, requires special diet due to past health issues.","Good with children, prefers quiet environments."
+Bubbles,54,5,2019-08-21,medium,gentle,healthy,"Captured near Cerulean City, loves playing in water.","Ideal for homes with other water-loving Pokémon, gentle with kids."
+Puff,39,4,2021-07-08,small,quirky,healthy,"Found in an urban area, known for its playful nature.","Prefers a home with playful children, gets along with other small Pokémon."
+Bolt,25,6,2020-11-12,large,serious,healthy,"Rescued from the Power Plant, has undergone behavior training.","Best suited for experienced trainers, gets along with other electric-type Pokémon."
+Shadow,92,8,2018-03-05,medium,lonely,special_diet,"Found abandoned in a cave, requires special diet due to digestive issues.","Suitable for quiet homes, prefers being the only Pokémon."
+Sunny,58,1,2021-09-19,small,modest,healthy,"Rescued from a wildfire area, very affectionate and calm.","Perfect for elderly owners, enjoys being a companion Pokémon."
+Frost,87,9,2022-04-25,medium,careful,healthy,"Captured near an icy mountain, enjoys cold climates.","Ideal for homes in cooler regions, gets along well with other ice-type Pokémon."
+Echo,41,7,2019-12-11,large,relaxed,healthy,"Found in a dense forest, very relaxed and easy-going.","Good with large families, compatible with other relaxed Pokémon."
