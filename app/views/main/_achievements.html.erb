@@ -9,8 +9,8 @@
 <section class="grid grid-cols-2 gap-y-12 lg:flex lg:justify-between">
   <% @achievements.each do |achievement| %>
     <article class="flex flex-col items-center lg:items-start">
-      <h2 class="text-6xl text-accent font-semibold"><%= achievement[:total] %></h2>
-      <p class="text-lg"><%= achievement[:label] %></p>
+      <h2 class="text-4xl lg:text-6xl text-accent font-semibold"><%= achievement[:total] %></h2>
+      <p class="text-sm lg:text-lg"><%= achievement[:label] %></p>
     </article>
   <% end %>
 </section>

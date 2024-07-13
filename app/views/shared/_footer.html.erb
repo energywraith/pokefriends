@@ -1,0 +1,33 @@
+<%
+@links = [
+  { label: "Home", path: root_path },
+  { label: "Pokemon for Adoption", path: adoptable_pokemons_path },
+  { label: "Pokedex", path: pokemons_path },
+  { label: "FAQ", path: root_path },
+  { label: "Get Your Pokemon Now!", path: adoptable_pokemons_path }
+]
+%>
+<footer class="bg-accent text-zinc-100 relative overflow-hidden">
+  <%= image_tag("pokeball.svg", class: "h-96 w-96 absolute right-0 -bottom-1/3 opacity-15 lg:opacity-50 pointer-events-none") %>
+  <section class="container mx-auto px-5 py-12 gap-x-24 gap-y-8 flex flex-col items-center lg:items-start text-center lg:text-start lg:flex-row">
+    <section class="flex flex-col gap-y-4 items-center lg:items-start">
+      <h3><%= link_to image_tag("brand-light.png", class: "h-8"), root_path %></h3>
+      <p class="max-w-72 text-zinc-50">Countless Pokémon are in need of a home. With us, you can give them a loving family.</p>
+    </section>
+    <ul class="flex flex-col gap-y-4 font-medium">
+      <% @links.each do |link| %>
+        <li>
+          <%= link_to link[:label], link[:path], class: "" %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="flex flex-col justify-between gap-y-4 font-medium">
+      <li>Linkedin</li>
+      <li>Instagram</li>
+      <li>Facebook</li>
+    </ul>
+  </section>
+  <section class="container mx-auto text-center px-5 pb-8 pt-4">
+    2024 PokeFriends, Made with ♥ for Pokémon
+  </section>
+</footer>
