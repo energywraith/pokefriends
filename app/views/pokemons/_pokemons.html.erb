@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "pokemons" do %>
+  <ul class="mb-4 grid grid-cols-1 lg:grid-cols-4 justify-between gap-4">
+    <% @pokemons.each do |pokemon| %>
+      <li>
+        <%= render pokemon %>
+      </li>
+    <% end %>
+  </ul>
+  <% if @pokemons.next_page %>
+    <%= turbo_frame_tag "pokemons", loading: :lazy, src: pokemons_path(@pokemon, page: @pokemons.next_page, q: params[:q]) do %>
+      <ul class="grid grid-cols-4 justify-between gap-4">
+        <% 8.times do %>
+          <li class="h-52 rounded-2xl bg-orange-200 animate-pulse"></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

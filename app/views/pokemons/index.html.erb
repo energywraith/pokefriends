@@ -1,9 +1,4 @@
-<h1>Pokemon (<%= @pokemons.count %>)</h1>
-
-<ul>
-  <% @pokemons.each do |pokemon| %>
-    <li>
-      <%= link_to pokemon.name, pokemon %>
-    </li>
-  <% end %>
-</ul>
+<%= render "shared/subpage_banner", title: "Pokedex", description: "Explore Detailed Profiles, Unique Traits, and Fascinating Histories of Every Pokémon. Uncover Their Abilities, Habitats, and Stories to Become a True Pokémon Master!" do %>
+  <%= render "shared/input", placeholder: "Search...", data: { controller: "pokemons", action: "pokemons#change" } %>
+<% end %>
+<%= render "pokemons" %>

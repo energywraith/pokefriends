@@ -6,17 +6,7 @@
   <ul class="embla overflow-hidden mt-10" id="recentAdoptablePokemon">
     <li class="embla__container flex gap-x-4">
       <% @recent_adoptable_pokemons.each do |adoptable_pokemon| %>
-        <%= link_to adoptable_pokemon_path(adoptable_pokemon[:id]), class: "embla__slide flex-grow-0 flex-shrink-0 basis-auto" do %>
-          <div class="bg-accent p-3 rounded-full flex items-center gap-x-4">
-            <%= image_tag("pokemons/zapdos.png", class: "h-16 bg-zinc-100 rounded-full") %>
-            <section class="flex flex-col justify-center text-zinc-200 mr-8">
-              <header class="text-xs"><%= adoptable_pokemon.species[:name] %></header>
-              <main class="text-lg font-semibold leading-tight text-zinc-100"><%= adoptable_pokemon[:name] %></main>
-              <footer class="text-xs"><%= adoptable_pokemon.shelter[:name] %></footer>
-            </section>
-            <%= image_tag("chevron-right.svg", class: "ml-auto h-8") %>
-          </div>
-        <% end %>
+        <%= render "adoptable_pokemons/adoptable_pokemon_badge", adoptable_pokemon: adoptable_pokemon %>
       <% end %>
     </li>
   </ul>
