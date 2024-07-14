@@ -7,5 +7,9 @@ class Pokemon < ApplicationRecord
     POKEMON_TYPE_COLORS[main_type] || '#83A498' # Defaults to accent color if no color is found
   end
 
+  def image
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{id}.png"
+  end
+
   default_scope { order(id: :asc) }
 end
