@@ -1,5 +1,15 @@
-<h1><%= @pokemon.name %></h1>
-<ul>
-  <%= @evolutions.inspect %>
-</ul>
-<%= @pokemon.color %>
+<header class="grid gap-y-6 lg:gap-y-0 gap-x-6 lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_auto_auto] items-center">
+  <ul class="flex gap-x-2 row-start-3 lg:row-start-1">
+    <% @pokemon.types.each do |type| %>
+      <li class="px-4 py-1 text-sm text-zinc-100 rounded-2xl font-semibold" style="background-color: <%= POKEMON_TYPE_COLORS[type.downcase&.to_sym] %>">
+        <%= type %>
+      </li>
+    <% end %>
+  </ul>
+  <h1 class="text-5xl font-semibold text-accent lg:col-start-2"><%= @pokemon.name %></h1>
+  <p class="text-xl lg:col-start-2"><%= @pokemon.description %></p>
+  <div class="lg:row-span-3 lg:row-start-1 lg:col-start-1 relative w-fit">
+    <%= image_tag("pokemons/pokemon-background.png", class: "rounded-3xl object-cover w-full lg:w-48 h-48 brightness-75", alt: "Grass background") %>
+    <%= image_tag(@pokemon.image, class: "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-44" , alt: "#{@pokemon.name} pokedex entry") %>
+  </div>
+</header>
