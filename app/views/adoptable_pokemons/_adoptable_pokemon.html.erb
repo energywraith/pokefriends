@@ -1,0 +1,39 @@
+<%= link_to adoptable_pokemon, data: { turbo_frame: "_top" } do %>
+  <article class="relative flex gap-x-6 lg:gap-x-11 h-36 rounded-2xl text-zinc-100 items-center px-8 hover:brightness-90" style="background-color: <%= adoptable_pokemon.species.color %>">
+    <%= image_tag("pokeball.svg", class: "absolute -right-4 -bottom-4 h-32 opacity-25 -rotate-45", alt: "Psyduck splashing in the water at our resort") %>
+    <section>
+      <span class="text-3xl lg:text-6xl font-semibold opacity-25">#<%= adoptable_pokemon.species.id.to_s.rjust(3, '0') %></span>
+      <h4 class="text-lg font-semibold"><%= adoptable_pokemon.species.name %></h4>
+    </section>
+    <section class="flex flex-col gap-y-1">
+      <ul class="flex gap-x-2">
+        <% adoptable_pokemon.species.types.each do |type| %>
+          <li class="px-4 py-1 text-sm bg-zinc-100 bg-opacity-25 rounded-2xl font-semibold">
+            <%= type %>
+          </li>
+        <% end %>
+      </ul>
+      <h3 class="text-2xl lg:text-4xl font-semibold"><%= adoptable_pokemon.name %></h3>
+      <span class="font-semibold"><%= adoptable_pokemon.shelter.name %> Shelter</span>
+    </section>
+    <table class="hidden lg:block">
+      <tr>
+        <th class="text-end text-zinc-200 font-semibold pr-3">Age</th>
+        <td class="font-semibold"><%= adoptable_pokemon.age %></td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-200 font-semibold pr-3">Size</th>
+        <td class="font-semibold"><%= adoptable_pokemon.size.capitalize %></td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-200 font-semibold pr-3">Temperament</th>
+        <td class="font-semibold"><%= adoptable_pokemon.temperament.capitalize %></td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-200 font-semibold pr-3">Health Status</th>
+        <td class="font-semibold"><%= adoptable_pokemon.health %></td>
+      </tr>
+    </table>
+    <%= image_tag(adoptable_pokemon.species.image, class: "relative h-40 -mr-10 ml-auto", alt: "Psyduck splashing in the water at our resort") %>
+  </article>
+<% end %>

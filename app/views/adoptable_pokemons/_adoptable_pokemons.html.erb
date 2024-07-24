@@ -1,0 +1,21 @@
+<section>
+  <h2 class="text-2xl font-semibold mb-10">PokéFriends <%= turbo_frame_tag "search_count_frame" do %>(<%= @adoptable_pokemons.count %>) <% end %></h2>
+  <%= turbo_frame_tag "search_frame" do %>
+    <ul class="flex flex-col gap-y-8 mb-8">
+      <% @adoptable_pokemons.each do |adoptable_pokemon| %>
+        <li>
+          <%= render adoptable_pokemon %>
+        </li>
+      <% end %>
+    </ul>
+    <% if @adoptable_pokemons.next_page %>
+      <%= turbo_frame_tag "search_frame", loading: :lazy, src: adoptable_pokemons_path(@adoptable_pokemon, page: @adoptable_pokemons.next_page, q: params[:q]) do %>
+        <ul class="flex flex-col gap-y-8">
+          <% 8.times do %>
+            <li class="h-36 rounded-2xl bg-orange-200 animate-pulse"></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</section>
