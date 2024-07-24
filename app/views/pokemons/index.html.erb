@@ -1,4 +1,4 @@
-<%= render "shared/subpage_banner", title: "Pokedex", description: "Explore Detailed Profiles, Unique Traits, and Fascinating Histories of Every Pokémon. Uncover Their Abilities, Habitats, and Stories to Become a True Pokémon Master!" do %>
-  <%= render "shared/input", placeholder: "Search...", data: { controller: "pokemons", action: "pokemons#change" } %>
+<%= render "shared/subpage_banner", image: "pokemons/pokedex.webp", title: "Pokedex", description: "Explore Detailed Profiles, Unique Traits, and Fascinating Histories of Every Pokémon. Uncover Their Abilities, Habitats, and Stories to Become a True Pokémon Master!" do %>
+  <%= render "shared/input", placeholder: "Search...", data: { controller: "search-frame", action: "search-frame#change" } %>
 <% end %>
 <%= render "pokemons" %>

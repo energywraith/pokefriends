@@ -1,6 +1,6 @@
 <section>
-  <h2 class="text-2xl font-semibold mb-10">Pokemon (<%= @pokemons.count %>)</h2>
-  <%= turbo_frame_tag "pokemons" do %>
+  <h2 class="text-2xl font-semibold mb-10">Pokemon <%= turbo_frame_tag "search_count_frame" do %>(<%= @pokemons.count %>) <% end %></h2>
+  <%= turbo_frame_tag "search_frame" do %>
     <ul class="mb-4 grid grid-cols-1 lg:grid-cols-4 justify-between gap-4">
       <% @pokemons.each do |pokemon| %>
         <li>
@@ -9,7 +9,7 @@
       <% end %>
     </ul>
     <% if @pokemons.next_page %>
-      <%= turbo_frame_tag "pokemons", loading: :lazy, src: pokemons_path(@pokemon, page: @pokemons.next_page, q: params[:q]) do %>
+      <%= turbo_frame_tag "search_frame", loading: :lazy, src: pokemons_path(@pokemon, page: @pokemons.next_page, q: params[:q]) do %>
         <ul class="grid grid-cols-4 justify-between gap-4">
           <% 8.times do %>
             <li class="h-52 rounded-2xl bg-orange-200 animate-pulse"></li>
