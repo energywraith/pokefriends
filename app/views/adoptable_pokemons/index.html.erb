@@ -1,4 +1,7 @@
 <%= render "shared/subpage_banner", image: "adoptable_pokemons/ash.webp", title: "Pokémon For Adoption", description: "Discover and Adopt Your Ideal Pokémon Companion: Explore Profiles, Traits, and Histories to Find the Perfect Match for Your Home and Heart!" do %>
   <%= render "shared/input", placeholder: "Search...", data: { controller: "search-frame", action: "search-frame#change" } %>
 <% end %>
-<%= render "adoptable_pokemons" %>
+<section>
+  <h2 class="text-2xl font-semibold mb-10">PokéFriends <%= turbo_frame_tag "search_count_frame" do %>(<%= @adoptable_pokemons.count %>) <% end %></h2>
+  <%= render "adoptable_pokemons" %>
+</section>

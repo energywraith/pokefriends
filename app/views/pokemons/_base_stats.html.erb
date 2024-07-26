@@ -1,0 +1,45 @@
+<section>
+  <h3 class="text-2xl font-semibold">Base Stats</h3>
+  <section class="grid lg:grid-cols-2 gap-x-20 mt-6">
+    <table class="border-separate border-spacing-y-4">
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">HP</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.hp, value_max: 180 %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">Attack</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.attack, value_max: 180 %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">Defense</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.defense, value_max: 180 %>
+        </td>
+      </tr>
+    </table>
+    <table class="border-separate border-spacing-y-4">
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">Special Attack</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.special_attack, value_max: 180 %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">Special Defense</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.special_defense, value_max: 180 %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-end text-zinc-500 font-semibold pr-6 whitespace-nowrap">Speed</th>
+        <td class="w-full">
+          <%= render "shared/progress_indicator", value: @pokemon.speed, value_max: 180 %>
+        </td>
+      </tr>
+    </table>
+  </section>
+</section>

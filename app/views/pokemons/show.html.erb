@@ -13,3 +13,18 @@
     <%= image_tag(@pokemon.image, class: "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-44" , alt: "#{@pokemon.name} pokedex entry") %>
   </div>
 </header>
+<%= render "base_stats" %>
+<%= render "evolutions/evolutions" %>
+<section>
+  <header class="flex items-center justify-between mb-10">
+    <h3 class="text-2xl font-semibold">Are you interested in adopting <%= @pokemon.name %>?</h3>
+    <% if @adoptable_pokemons.length.positive? %>
+      <%= render "shared/link", text: "View All", href: adoptable_pokemons_path({ q: @pokemon.name }), classname: 'text-end' %>
+    <% end %>
+  </header>
+  <% if @adoptable_pokemons.length.positive? %>
+    <%= render "adoptable_pokemons/adoptable_pokemons" %>
+  <% else %>
+    <p class="-mt-6">Sorry, there are currently no <%= @pokemon.name %> available for adoption. Please check back later!</p>
+  <% end %>
+</section>

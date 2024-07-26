@@ -11,6 +11,10 @@ class PokemonsController < ApplicationController
   def show
     @pokemon = Pokemon.find(params[:id])
     @evolutions = @pokemon.pokemon_evolutions.map(&:evolution)
+
+    page = params[:page] || 1
+    @adoptable_pokemons = AdoptablePokemon.where('species_id = ?', params[:id])
+    @adoptable_pokemons = @adoptable_pokemons.paginate(page:, per_page: 16)
   end
 end
 
