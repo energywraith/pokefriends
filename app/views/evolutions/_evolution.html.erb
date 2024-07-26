@@ -1,0 +1,19 @@
+<li class="flex flex-col items-center font-semibold text-sm text-accent">
+  <%= link_to image_tag(pokemon.image, class: "h-32 object-contain", alt: "#{@pokemon.name} pokedex entry"), pokemon %>
+  <%= link_to pokemon.name, pokemon %>
+</li>
+<% if pokemon.evolution %>
+  <li class="flex flex-col items-center gap-y-2 font-semibold text-sm text-accent">
+    <%= image_tag("arrow-right.svg", class: "w-6", alt: "#{@pokemon.name} pokedex entry") %>
+    <%= "(Level #{pokemon.evolution.level})" if pokemon.evolution.level %>
+    <% if pokemon.evolution.item %>
+      <div class="flex items-center">
+        (
+        <%= image_tag(pokemon.evolution.item.image, class: "h-8 object-contain mr-1", alt: "#{@pokemon.name} pokedex entry") %>
+        <%= pokemon.evolution.item.name %>
+        )
+      </div>
+    <% end %>
+    <%= "(Trade)" if pokemon.evolution.by_trade %>
+  </li>
+<% end %>
