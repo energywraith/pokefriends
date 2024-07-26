@@ -4,7 +4,7 @@
 </li>
 <% if pokemon.evolution %>
   <li class="flex flex-col items-center gap-y-2 font-semibold text-sm text-accent text-center">
-    <%= image_tag("arrow-right.svg", class: "w-6 rotate-90", alt: "#{@pokemon.name} pokedex entry") %>
+    <%= image_tag("arrow-right.svg", class: "w-6 rotate-90 lg:rotate-0", alt: "#{@pokemon.name} pokedex entry") %>
     <%= "(Level #{pokemon.evolution.level})" if pokemon.evolution.level %>
     <% if pokemon.evolution.item %>
       <div class="flex items-center">

@@ -1,5 +1,51 @@
-<h1><%= @adoptable_pokemon.name %></h1>
-
-<ul>
-  <%= @species.inspect %>
-</ul>
+<%= render "pokemons/pokemon_banner", pokemon: @adoptable_pokemon.species, adoptable_pokemon: @adoptable_pokemon %>
+<section>
+  <h3 class="text-2xl font-semibold">Pokémon Information</h3>
+  <p class="mt-4">Get to know me better! Here you'll find details about my age, size, temperament, health status, background, and compatibility to help you decide if I'm the perfect match for your home.</p>
+  <table class="border-separate border-spacing-x-8 -ml-8 mt-9">
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Age</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.age %></td>
+    </tr>
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Size</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.size.capitalize %></td>
+    </tr>
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Temperament</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.temperament.capitalize %></td>
+    </tr>
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Health Status</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.health %></td>
+    </tr>
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Background</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.background %></td>
+    </tr>
+    <tr>
+      <th class="font-normal text-zinc-500 text-start align-top">Compatibility</th>
+      <td class="font-semibold text-accent"><%= @adoptable_pokemon.compatibility %></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h3 class="text-2xl font-semibold">My Location</h3>
+  <p class="mt-4">Currently, I live in <span class="text-accent font-semibold"><%= @adoptable_pokemon.shelter.name %></span>. This is where you can come to meet me and take me to my new home.</p>
+  <%= image_tag("map.webp", class: "w-full object-contain mt-10", alt: "Pokemon map") %>
+</section>
+<section class="flex flex-col">
+  <h3 class="text-2xl font-semibold">Adopting Process</h3>
+  <ul class="mt-10 flex flex-col gap-y-6">
+    <li class="flex items-center gap-x-4">
+      <%= image_tag("form.svg", class: "w-12", alt: "Form icon") %>
+      Fill out our online adoption application form.</li>
+    <li class="flex items-center gap-x-4">
+      <%= image_tag("interview.svg", class: "w-12", alt: "Interview icon") %>
+      Participate in a brief interview and home check.</li>
+    <li class="flex items-center gap-x-4">
+      <%= image_tag("pick-up-truck.svg", class: "w-12", alt: "Pick up truck icon") %>
+      Schedule a time to pick up your new Pokémon and receive care instructions.</li>
+  </ul>
+  <%= render "shared/button_link", text: "Adopt #{@adoptable_pokemon.name}", icon: 'pokeball.svg', href: adoptable_pokemons_path, classname: "w-fit !font-normal self-center mt-12 lg:mt-16" %>
+</section>
