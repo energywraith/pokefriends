@@ -1,11 +1,11 @@
 <%= link_to adoptable_pokemon, data: { turbo_frame: "_top" } do %>
-  <article class="relative flex gap-x-6 lg:gap-x-11 h-36 rounded-2xl text-zinc-100 items-center px-8 hover:brightness-90" style="background-color: <%= adoptable_pokemon.species.color %>">
+  <article class="relative grid grid-cols-[auto_1fr] grid-rows-[auto_auto] lg:flex gap-x-6 lg:gap-x-11 lg:h-36 rounded-2xl text-zinc-100 lg:items-center pt-6 lg:pt-0 px-8 hover:brightness-90 overflow-hidden" style="background-color: <%= adoptable_pokemon.species.color %>">
     <%= image_tag("pokeball.svg", class: "absolute -right-4 -bottom-4 h-32 opacity-25 -rotate-45", alt: "a pokeball") %>
     <section>
       <span class="text-3xl lg:text-6xl font-semibold opacity-25">#<%= adoptable_pokemon.species.id.to_s.rjust(3, '0') %></span>
       <h4 class="text-lg font-semibold"><%= adoptable_pokemon.species.name %></h4>
     </section>
-    <section class="flex flex-col gap-y-1">
+    <section class="flex flex-col gap-y-1 row-span-2">
       <ul class="flex gap-x-2">
         <% adoptable_pokemon.species.types.each do |type| %>
           <li class="px-4 py-1 text-sm bg-zinc-100 bg-opacity-25 rounded-2xl font-semibold">
@@ -13,7 +13,7 @@
           </li>
         <% end %>
       </ul>
-      <h3 class="text-2xl lg:text-4xl font-semibold"><%= adoptable_pokemon.name %></h3>
+      <h3 class="text-2xl lg:text-4xl font-semibold mt-1 lg:mt-0"><%= adoptable_pokemon.name %></h3>
       <span class="font-semibold"><%= adoptable_pokemon.shelter.name %> Shelter</span>
     </section>
     <table class="hidden lg:block">
@@ -34,6 +34,6 @@
         <td class="font-semibold"><%= adoptable_pokemon.health %></td>
       </tr>
     </table>
-    <%= image_tag(adoptable_pokemon.species.image, class: "relative h-40 -mr-10 ml-auto", alt: "#{adoptable_pokemon.species.name} pokedex entry") %>
+    <%= image_tag(adoptable_pokemon.species.image, class: "relative col-start-1 row-start-2 lg:h-40 lg:-mr-10 lg:ml-auto", alt: "#{adoptable_pokemon.species.name} pokedex entry") %>
   </article>
 <% end %>

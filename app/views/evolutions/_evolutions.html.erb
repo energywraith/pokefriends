@@ -1,7 +1,7 @@
 <% if @evolutions.length.positive? %>
   <section class="-mt-4">
     <h3 class="text-2xl font-semibold">Evolution Chart</h3>
-    <ul class="flex items-center justify-center gap-x-16 w-full mt-8">
+    <ul class="flex flex-col lg:flex-row items-center justify-center gap-y-4 gap-x-16 w-full lg:mt-8">
       <% @evolutions.each_with_index do |evolution, index| %>
         <%= render "evolutions/evolution", pokemon: evolution.pokemon if index === 0 %>
         <%= render "evolutions/evolution", pokemon: evolution.evolution_pokemon %>
