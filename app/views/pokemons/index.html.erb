@@ -1,5 +1,5 @@
 <%= render "shared/subpage_banner", image: "pokemons/pokedex.webp", title: "Pokedex", description: "Explore Detailed Profiles, Unique Traits, and Fascinating Histories of Every Pokémon. Uncover Their Abilities, Habitats, and Stories to Become a True Pokémon Master!" do %>
-  <%= render "shared/input", placeholder: "Search...", data: { controller: "search-frame", action: "search-frame#change" } %>
+  <%= render "shared/search_input", placeholder: "Search...", data: { controller: "search-frame", action: "search-frame#change" } %>
 <% end %>
 <section>
   <h2 class="text-2xl font-semibold mb-10">Pokemon <%= turbo_frame_tag "search_count_frame" do %>(<%= @pokemons.count %>) <% end %></h2>
