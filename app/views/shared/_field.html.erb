@@ -1,0 +1,9 @@
+<% if defined?(custom_label) %>
+  <%= form.label name, custom_label %>
+<% else %>
+  <%= form.label name %>
+<% end %>
+<%= yield %>
+<% if model.errors[name].any? %>
+  <div class="text-red-400 mt-2"><%= model.errors[name].first %></div>
+<% end %>

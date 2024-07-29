@@ -1,9 +1,9 @@
 <%
 @links = [
-  { label: "HOME", path: root_path, controller: "main" },
-  { label: "POKEMON FOR ADOPTION", path: adoptable_pokemons_path, controller: "adoptable_pokemons" },
-  { label: "POKEDEX", path: pokemons_path, controller: "pokemons" },
-  { label: "FAQ", path: root_path, controller: "faq" }
+  { label: "HOME", path: root_path, controller: ["main"] },
+  { label: "POKEMON FOR ADOPTION", path: adoptable_pokemons_path, controller: ["adoptable_pokemons", "adoptions"] },
+  { label: "POKEDEX", path: pokemons_path, controller: ["pokemons"] },
+  { label: "FAQ", path: root_path, controller: ["faq"] }
 ]
 %>
 <nav>
@@ -18,7 +18,7 @@
     <div class="hidden w-full lg:block lg:w-auto text-xs font-semibold" id="navbar-default">
       <ul class="font-medium flex flex-col lg:flex-row gap-x-6 lg:items-center mt-4 lg:mt-0 rounded-lg border border-orange-200 bg-orange-50 lg:bg-transparent px-4 pt-6 pb-4 lg:p-0 lg:border-0">
         <% @links.each do |link| %>
-          <li class="<%= 'text-accent' if link[:controller].eql? params[:controller]%>">
+          <li class="<%= 'text-accent' if link[:controller].include?(params[:controller]) %>">
             <%= link_to link[:label], link[:path], class: "block py-3 lg:p-0 max-lg:hover:bg-accent max-lg:hover:text-zinc-100 px-4 rounded-md" %>
           </li>
         <% end %>

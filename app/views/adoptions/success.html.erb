@@ -1,0 +1,14 @@
+<%= render "pokemons/pokemon_banner", pokemon: @adoptable_pokemon.species, adoptable_pokemon: @adoptable_pokemon %>
+<section class="flex flex-col">
+  <h2 class="text-2xl font-semibold">Thank You for Your Application!</h2>
+  <section class="mt-4 flex flex-col gap-y-6">
+    <p>
+      Your Pokémon adoption application has been successfully submitted to the PokeFriends team.
+      <span class="font-semibold">We will review your application and get back to you within 24 hours.</span>
+    </p>
+    <p>If you have any questions or need further assistance, please don't hesitate to contact us at 
+      <%= mail_to "support@pokefriends.com", class: "text-accent" %>.</p>
+    <p class="font-semibold">Thank you for choosing to give a Pokémon a loving home!</p>
+  </section>
+  <%= image_tag("brand.png", class: "h-20 mt-20 mx-auto") %>
+</section>

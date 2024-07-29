@@ -1,4 +1,4 @@
-<%= render "pokemons/pokemon_banner", pokemon: @adoptable_pokemon.species, adoptable_pokemon: @adoptable_pokemon %>
+  <%= render "pokemons/pokemon_banner", pokemon: @adoptable_pokemon.species, adoptable_pokemon: @adoptable_pokemon %>
 <section>
   <h3 class="text-2xl font-semibold">Pokémon Information</h3>
   <p class="mt-4">Get to know me better! Here you'll find details about my age, size, temperament, health status, background, and compatibility to help you decide if I'm the perfect match for your home.</p>
@@ -47,5 +47,5 @@
       <%= image_tag("pick-up-truck.svg", class: "w-12", alt: "Pick up truck icon") %>
       Schedule a time to pick up your new Pokémon and receive care instructions.</li>
   </ul>
-  <%= render "shared/button_link", text: "Adopt #{@adoptable_pokemon.name}", icon: 'pokeball.svg', href: adoptable_pokemons_path, classname: "w-fit !font-normal self-center mt-12 lg:mt-16" %>
+  <%= render "shared/button_link", text: "Adopt #{@adoptable_pokemon.name}", icon: 'pokeball.svg', href: adopt_adoptable_pokemon_path(@adoptable_pokemon), classname: "w-fit !font-normal self-center mt-12 lg:mt-16" %>
 </section>

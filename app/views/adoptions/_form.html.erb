@@ -1,0 +1,43 @@
+<%= form_with model: @adoption, url: adopt_adoptable_pokemon_path(params[:id]) do |form| %>
+  <%= form.hidden_field :adoptable_pokemon_id, value: params[:id] %>
+  <h3 class="text-xl font-semibold mb-6">Personal Information</h3>
+  <%= render "shared/field", form: form, model: @adoption, name: :full_name do  %>
+    <%= form.text_field :full_name %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :email_address do  %>
+    <%= form.email_field :email_address %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :phone_number do  %>
+    <%= form.telephone_field :phone_number %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :city do  %>
+    <%= form.select :city, options_for_select(Adoption.cities.map {|k, v| [k.humanize.capitalize, v]}) %>
+  <% end %>
+  <h3 class="text-xl font-semibold mb-6 mt-14">Household Information</h3>
+  <%= render "shared/field", form: form, model: @adoption, name: :household_ownership, custom_label: 'Have You Owned a Pokémon or Pet Before? (Yes/No)' do  %>
+    <%= form.select :household_ownership, options_for_select(Adoption.household_ownerships.map {|k, v| [k.humanize.capitalize, v]}) %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :household_size, custom_label: 'Number of People in Household' do  %>
+    <%= form.number_field :household_size, min: 1 %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :household_children, custom_label: 'Any Children? (Yes/No, If Yes, Ages)' do  %>
+    <%= form.text_field :household_children %>
+  <% end %>
+  <h3 class="text-xl font-semibold mb-6 mt-14">Experience and Lifestyle</h3>
+  <%= render "shared/field", form: form, model: @adoption, name: :has_experience, custom_label: 'Have You Owned a Pokémon or Pet Before? (Yes/No)' do  %>
+    <%= form.select :has_experience, options_for_select([['Yes', true], ['No', false]]) %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :why_adopt_pokemon, custom_label: 'Why Do You Want to Adopt a Pokémon?' do  %>
+    <%= form.text_area :why_adopt_pokemon %>
+  <% end %>
+  <%= render "shared/field", form: form, model: @adoption, name: :desired_pokemon_traits, custom_label: 'What Traits Are You Looking for in a Pokémon?' do  %>
+    <%= form.text_area :desired_pokemon_traits %>
+  <% end %>
+  <p class="text-accent font-bold mt-10">
+    By clicking the button below,
+    I certify that the information provided in this application is true
+    and accurate to the best of my knowledge.
+    I understand that completing this application does not guarantee the adoption of a Pokémon.
+  </p>
+  <%= form.submit "Send Application Form" %>
+<% end %>

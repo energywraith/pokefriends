@@ -8,5 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'main#index'
   resources :pokemons, only: %i[index show], path: 'pokedex'
-  resources :adoptable_pokemons, only: %i[index show], path: 'adoption'
+  resources :adoptable_pokemons, only: %i[index show], path: 'pokemons' do
+    member do
+      get '/adopt', to: 'adoptions#new'
+      post '/adopt', to: 'adoptions#create'
+      get '/adopt/success', to: 'adoptions#success', as: :success
+    end
+  end
+  # get '/pokemons/adopt/:id', to: 'adoptable_pokemons#adopt', as: 'adopt'
 end
