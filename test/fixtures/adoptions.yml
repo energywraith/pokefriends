@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  city: 
+  household_ownership: 
+  household_size: 1
+  household_children: MyString
+  has_experience: false
+  why_adopt_pokemon: MyText
+  desired_pokemon_traits: MyText
+  adoptable_pokemon: one
+
+two:
+  full_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  city: 
+  household_ownership: 
+  household_size: 1
+  household_children: MyString
+  has_experience: false
+  why_adopt_pokemon: MyText
+  desired_pokemon_traits: MyText
+  adoptable_pokemon: two

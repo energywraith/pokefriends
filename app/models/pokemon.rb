@@ -1,7 +1,7 @@
 class Pokemon < ApplicationRecord
   has_many :pokemon_evolutions
   has_many :adoptable_pokemons
-  belongs_to :evolution
+  belongs_to :evolution, optional: true
 
   def color
     main_type = types.first&.downcase&.to_sym

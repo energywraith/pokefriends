@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_11_182240) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_27_105511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "city", ["pallet_town", "viridian_city", "pewter_city", "cerulean_city", "vermilion_city", "lavender_town", "celadon_city", "fuchsia_city", "saffron_city", "cinnabar_island"]
   create_enum "health_status", ["healthy", "special_diet"]
+  create_enum "household_ownership", ["rent", "own"]
   create_enum "pokemon_type", ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Fairy", "Steel", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon"]
   create_enum "size", ["small", "medium", "large"]
   create_enum "temperament", ["hardy", "lonely", "brave", "relaxed", "serious", "modest", "quiet", "calm", "gentle", "careful", "quirky"]
@@ -35,6 +37,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_182240) do
     t.datetime "updated_at", null: false
     t.index ["shelter_id"], name: "index_adoptable_pokemons_on_shelter_id"
     t.index ["species_id"], name: "index_adoptable_pokemons_on_species_id"
+  end
+
+  create_table "adoptions", force: :cascade do |t|
+    t.string "full_name"
+    t.string "email_address"
+    t.string "phone_number"
+    t.enum "city", enum_type: "city"
+    t.enum "household_ownership", enum_type: "household_ownership"
+    t.integer "household_size"
+    t.string "household_children"
+    t.boolean "has_experience"
+    t.text "why_adopt_pokemon"
+    t.text "desired_pokemon_traits"
+    t.boolean "pending", default: true
+    t.bigint "adoptable_pokemon_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adoptable_pokemon_id"], name: "index_adoptions_on_adoptable_pokemon_id"
   end
 
   create_table "evolutions", force: :cascade do |t|
@@ -87,6 +107,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_182240) do
 
   add_foreign_key "adoptable_pokemons", "pokemons", column: "species_id"
   add_foreign_key "adoptable_pokemons", "shelters"
+  add_foreign_key "adoptions", "adoptable_pokemons"
   add_foreign_key "evolutions", "items"
   add_foreign_key "pokemon_evolutions", "evolutions"
   add_foreign_key "pokemon_evolutions", "pokemons"
