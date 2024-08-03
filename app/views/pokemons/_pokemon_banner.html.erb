@@ -1,6 +1,11 @@
 <% is_adoptable_pokemon_view = defined?(adoptable_pokemon) %>
 <header class="grid gap-y-6 lg:gap-y-0 gap-x-6 lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_auto_auto] items-center">
   <ul class="flex gap-x-2 row-start-3 lg:row-start-1">
+    <% if is_adoptable_pokemon_view && adoptable_pokemon.is_during_adoption %>
+      <li class="px-4 py-1 text-sm w-fit bg-accent text-zinc-100 rounded-2xl font-semibold">
+        During Adoption
+      </li>
+    <% end %>
     <% pokemon.types.each do |type| %>
       <li class="px-4 py-1 text-sm text-zinc-100 rounded-2xl font-semibold" style="background-color: <%= POKEMON_TYPE_COLORS[type.downcase&.to_sym] %>">
         <%= type %>
