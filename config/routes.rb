@@ -19,5 +19,6 @@ Rails.application.routes.draw do
       get '/adopt/success', to: 'adoptions#success', as: :success
     end
   end
+  resources :faq, only: %i[index]
   # get '/pokemons/adopt/:id', to: 'adoptable_pokemons#adopt', as: 'adopt'
 end

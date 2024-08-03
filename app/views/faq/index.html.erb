@@ -1,0 +1,34 @@
+<%= render "shared/subpage_banner", image: "faq/who_is_that_pokemon.webp", title: "FAQ", description: "Find Answers to All Your Questions. Explore Common Inquiries, Detailed Explanations, and Helpful Tips to Enhance Your Pokémon Adoption Experience!" %>
+<ul class="grid grid-cols-[1fr_1fr_1fr] gap-x-4 gap-y-12">
+  <%= render "question_and_answer", question: "How do I adopt a Pokémon?" do %>
+    <ol class="list-decimal list-inside flex flex-col gap-y-2">
+      <li>Browse and Choose: Explore our "Latest Pokémons" section or Pokedex to find a Pokémon you like.</li>
+      <li>Apply: Fill out our online adoption application form.</li>
+      <li>Interview: Participate in a brief interview and home check.</li>
+      <li>Pick Up: Schedule a time to pick up your new Pokémon and receive care instructions.</li>
+    </ol>
+  <% end %>
+  <%= render "question_and_answer", question: "What are the requirements for adopting a Pokémon?" do %>
+    To adopt a Pokémon, you must be at least 18 years old and complete our adoption application form.
+    Provide a safe and suitable environment, be prepared for long-term care, and participate in an interview with our team.
+    Demonstrate financial stability to cover care costs and sign an adoption agreement. 
+  <% end %>
+  <%= render "question_and_answer", question: "Is there an adoption fee?" do %>
+    No, adopting a Pokémon is completely free.
+    However, you must demonstrate good financial stability to ensure you can provide for the Pokémon's ongoing care,
+    including food, healthcare, and other essentials.
+  <% end %>
+  <%= render "question_and_answer", question: "How do I care for my adopted Pokémon?" do %>
+    Once you've adopted a Pokémon, you'll receive detailed care instructions specific to its type and traits.
+    This includes feeding, playing, training, and ensuring its overall well-being.
+  <% end %>
+  <%= render "question_and_answer", question: "What should I do if I encounter a problem with my adoption?" do %>
+    If you encounter any issues, please <%= mail_to "support@pokefriends.com", "contact our support team", class: "text-accent" %>.
+    We're here to assist you with any problems or concerns you may have.
+  <% end %>
+  <%= render "question_and_answer", question: "Can I suggest new features or improvements for the platform?" do %>
+    Absolutely! We value our users' feedback and are always looking for ways to improve.
+    You can submit your suggestions through the feedback form in the "Contact Us" section.
+  <% end %>
+</ul>
+<%= render "main/contact_us" %>

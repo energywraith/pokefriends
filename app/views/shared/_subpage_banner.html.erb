@@ -1,7 +1,7 @@
 <header class="grid gap-x-32 gap-y-6 lg:grid-cols-[1fr_auto] lg:grid-rows-[auto_auto_1fr]">
   <h1 class="text-5xl font-semibold text-accent lg:col-start-1"><%= title %></h1>
   <p class="text-xl lg:col-start-1"><%= description %></p>
-  <%= image_tag(image, class: "rounded-3xl object-cover max-h-60 w-full lg:w-fit lg:row-span-3 lg:row-start-1 lg:col-start-2", alt: "Pokedex from Pokemon series") %>
+  <%= image_tag(image, class: "rounded-3xl object-cover max-h-60 max-w-none lg:max-w-60 w-full lg:row-span-3 lg:row-start-1 lg:col-start-2", alt: "Pokedex from Pokemon series") %>
   <section class="w-full">
     <%= yield %>
   </section>
