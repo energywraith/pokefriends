@@ -2,7 +2,7 @@
 
 A Ruby on Rails application that simplifies the adoption process for Pokémon. Browse available Pokémon, submit adoption applications, and view detailed Pokedex profiles.
 
-This application is deployed and can be accessed [here](https://pokefriends-upur.onrender.com/). *(Load may take a while, since it is deployed using Render on a Hobby Plan)*.
+This application is deployed and can be accessed [here](https://pokefriends.onrender.com/). *(Load may take a while, since it is deployed using Render on a Hobby Plan)*.
 
 ## Designs
 
