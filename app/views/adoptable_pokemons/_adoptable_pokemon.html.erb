@@ -30,8 +30,10 @@
         <td class="font-semibold"><%= adoptable_pokemon.temperament.capitalize %></td>
       </tr>
       <tr>
-        <th class="text-end text-zinc-200 font-semibold pr-3">Health Status</th>
-        <td class="font-semibold"><%= adoptable_pokemon.health %></td>
+        <th class="text-end text-zinc-200 font-semibold pr-3">During Adoption</th>
+        <td class="font-semibold">
+          <%= adoptable_pokemon.is_during_adoption ? "Yes" : "No" %>
+        </td>
       </tr>
     </table>
     <%= image_tag(adoptable_pokemon.species.image, class: "relative col-start-1 row-start-2 lg:h-40 lg:-mr-10 lg:ml-auto", alt: "#{adoptable_pokemon.species.name} pokedex entry") %>

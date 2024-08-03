@@ -1,6 +1,7 @@
 class AdoptablePokemon < ApplicationRecord
   belongs_to :shelter
   belongs_to :species, class_name: 'Pokemon'
+  has_many :adoption
 
   def age
     return 'Young' unless @birth_date
@@ -30,5 +31,9 @@ class AdoptablePokemon < ApplicationRecord
     else
       'Healthy'
     end
+  end
+
+  def is_during_adoption
+    adoption.first&.pending
   end
 end

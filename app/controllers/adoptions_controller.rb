@@ -1,4 +1,6 @@
 class AdoptionsController < ApplicationController
+  before_action :check_if_adoptable, only: %i[new create]
+
   def new
     @adoption = Adoption.new
     @adoptable_pokemon = AdoptablePokemon.find(params[:id])
@@ -20,6 +22,14 @@ class AdoptionsController < ApplicationController
   end
 
   private
+
+  def check_if_adoptable
+    @adoption = Adoption.find_by(adoptable_pokemon: params[:id])
+
+    return unless @adoption&.pending
+
+    raise ActionController::RoutingError, 'Not Found'
+  end
 
   def adoption_params
     params.require(:adoption).permit(:adoptable_pokemon_id, :full_name, :email_address, :phone_number, :city, :household_ownership,

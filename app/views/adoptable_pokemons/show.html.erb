@@ -47,5 +47,10 @@
       <%= image_tag("pick-up-truck.svg", class: "w-12", alt: "Pick up truck icon") %>
       Schedule a time to pick up your new Pokémon and receive care instructions.</li>
   </ul>
-  <%= render "shared/button_link", text: "Adopt #{@adoptable_pokemon.name}", icon: 'pokeball.svg', href: adopt_adoptable_pokemon_path(@adoptable_pokemon), classname: "w-fit !font-normal self-center mt-12 lg:mt-16" %>
+  <%= render "shared/button_link", text: "Adopt #{@adoptable_pokemon.name}", icon: 'pokeball.svg', href: adopt_adoptable_pokemon_path(@adoptable_pokemon), classname: "w-fit !font-normal self-center mt-12 lg:mt-16 #{'pointer-events-none bg-zinc-400' if @adoptable_pokemon.is_during_adoption}" %>
+  <% if @adoptable_pokemon.is_during_adoption %>
+    <p class="self-center mt-4 text-accent font-semibold">
+      This pokemon is currently during adoption.
+    </p>
+  <% end %>
 </section>
