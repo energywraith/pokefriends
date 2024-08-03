@@ -11,7 +11,7 @@ All designs for this application were created using Figma. You can view the desi
 ## Ruby Version
 
 ```plaintext
-ruby '3.2.2
+ruby 3.2.2
 ```
 
 ## System Dependencies
