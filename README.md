@@ -6,7 +6,7 @@ This application is deployed and can be accessed [here](https://pokefriends.onre
 
 ## Designs
 
-All designs for this application were created using Figma. You can view the designs [here](https://www.figma.com/community/file/1401537151842335650/pokefriends?fuid=1035540441731437240).
+All designs for this application were created using Figma. You can view the designs [here](https://www.figma.com/design/JeeXIiR6lvnqqoumfmrT9z/Website?node-id=0-1&t=jIaazatDCJS8LL8U-1).
 
 ## Ruby Version
 
